@@ -11,8 +11,8 @@ body {
   font-family: Glory, sans-serif;
   margin: 0;
   background-color: var(--primary-color);
-  background-color: #ada0bf;
-  background-color: #185f72;
+  /*background-color: #185f72;*/
+  background-color: var(--primary-color);
   background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%23050506' fill-opacity='0.4'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
@@ -69,6 +69,96 @@ a:active {
   margin-right: 25px;
 }
 
+/* Modal class css*/
+.modal-container {
+  /*opacity: 0;*/
+  display: none; /*form will be hidden until we press add bookmark button*/
+  position: fixed; /*form will always be fixed irrespective of screen size*/
+  top: 0; /*will occupy the entire screen/space in browser*/
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+.show-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center; /*aligns the form to the center both vertically and horizontally*/
+}
+.modal {
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  max-width: 95%; /*to look good on mobile devices*/
+  width: 500px; /*width for desktop*/
+
+  /*text-align: center;*/
+  animation: modalopen 1s;
+  border-radius: var(--border-radius);
+}
+
+#close-modal {
+  float: right;
+  font-size: 24px;
+  position: relative;
+  top: 13px;
+  right: 13px;
+  cursor: pointer;
+}
+
+.modal-header {
+  background: var(--primary-color);
+  color: white;
+  padding: 15px;
+}
+h3 {
+  margin: 0; /*h3 elements usually have huge margin, so it is better to reduce the margin so that the form will be neat*/
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.modal-content {
+  padding: 20px;
+  background: whitesmoke;
+}
+
+/*FORM */
+.form-group {
+  height: 55px; /*so that it has the ability to space from each other*/
+}
+.form-input {
+  width: 97%; /*places the textbox uniformly*/
+  padding: 5px;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--primary-color);
+  display: block;
+  outline: none;
+}
+.form-label {
+  color: black;
+  display: block;
+}
+button {
+  cursor: pointer;
+  background: var(--primary-color);
+  color: white;
+  height: 30px;
+  width: 100px;
+  border: none;
+  border-radius: var(--border-radius);
+  margin-top: 10px; /*To separate buttons from input fields*/
+}
+button:hover {
+  filter: brightness(110%);
+}
+button:focus {
+  outline: none;
+}
 /*Media query: Large Smartphone(Vertical) */
 @media screen and (max-width: 600px) {
   .container {
